@@ -7,18 +7,20 @@
 #Explanation: The subarray [7, -1, 2, 3] has the largest sum 11.
 
 class Solution:
-    def searchInsert(self, arr, target):
-        low = 0
-        high = len(arr) - 1
-
-        while low <= high:
-            mid = (low + high) // 2
-
-            if arr[mid] == target:
-                return mid
-            elif arr[mid] < target:
-                low = mid + 1
-            else:
-                high = mid - 1
-
-        return low   # insertion position
+    
+    # Function to find maximum subarray sum
+    def maxSubarraySum(self, arr):
+        # Initialize with first element
+        max_sum = arr[0]
+        current_sum = arr[0]
+        
+        # Traverse array
+        for i in range(1, len(arr)):
+            
+            # Kadane's Algorithm
+            current_sum = max(arr[i], current_sum + arr[i])
+            
+            # Update maximum sum
+            max_sum = max(max_sum, current_sum)
+        
+        return max_sum
