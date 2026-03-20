@@ -7,7 +7,6 @@
 class Solution:
     def rotate(self, arr):
         n = len(arr)
-        
         # Store last element
         last = arr[n - 1]
         
